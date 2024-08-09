@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.along.generalmanagementsystemback.mapper.UserMapper">
+
+    <select id="selectAll">
+        select * from user where is_deleted = 0
+    </select>
+
+    <select id="selectByName" >
+        select * from user where name like concat('%',#{name},'%')
+    </select>
+
+    <update id="deleteUser" >
+        update user set is_deleted = 1 where id = #{id}
+    </update>
+
+    <insert id="saveUser" parameterType="com.along.generalmanagementsystemback.domain.entity.User" >
+        insert into user (name,age,gender,birth_date,address) values (#{name},#{age},#{gender},#{birthDate},#{address})
+    </insert>
+
+    <update id="updateUser" >
+        update user set name = #{name}, age = #{age}, gender = #{gender}, birth_date = #{birthDate}, address = #{address} where id = #{id}
+    </update>
+
+    <select id="selectByIdUser" >
+        select * from user where id = #{id}
+    </select>
+
+    <resultMap id="userMap" type="com.along.generalmanagementsystemback.domain.entity.User">
+        <id property="id" column="id" />
+        <result property="name" column="" />
+        <result property="password" column="password" />
+        <result property="age" column="age" />
+        <result property="gender" column="gender" />
+        <result property="birthDate" column="birth_date" javaType="java.lang.String" />
+        <result property="address" column="address" />
+    </resultMap>
+
+    <select id="login" >
+        select id from user where name = #{name} and password = #{password}
+    </select>
+
+</mapper>

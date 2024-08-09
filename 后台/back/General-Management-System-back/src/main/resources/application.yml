@@ -1,0 +1,19 @@
+
+
+server:
+  port: 9999
+spring:
+  datasource:
+    url: jdbc:mysql://47.121.187.38:3306/GeneralManagementSystem
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: rootroot123
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+mybatis-plus:
+
+#  configuration:
+#    map-underscore-to-camel-case: true
