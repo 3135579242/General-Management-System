@@ -1,13 +1,16 @@
+
+
 <script setup>
 
 </script>
 
 <template>
   <div>
-    <router-view></router-view>
+    商品
   </div>
 </template>
 
 <style scoped>
+
 
 </style>
